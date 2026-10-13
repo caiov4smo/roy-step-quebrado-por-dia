@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg: #030303;
@@ -136,10 +137,7 @@
             white-space: nowrap;
         }
 
-        .filter-btn:hover {
-            border-color: #4b5563;
-        }
-
+        .filter-btn:hover { border-color: #4b5563; }
         .filter-btn.active {
             border-color: var(--v4-red);
             background: #1a1517;
@@ -171,9 +169,7 @@
             flex-direction: column;
         }
 
-        .filter-dropdown.show {
-            display: flex;
-        }
+        .filter-dropdown.show { display: flex; }
 
         .filter-dropdown-header {
             padding: 6px 8px;
@@ -192,10 +188,7 @@
             text-transform: uppercase;
         }
 
-        .filter-action-links {
-            display: flex;
-            gap: 8px;
-        }
+        .filter-action-links { display: flex; gap: 8px; }
 
         .filter-action-link {
             font-size: 0.58em;
@@ -205,10 +198,7 @@
             text-transform: uppercase;
             text-decoration: underline;
         }
-
-        .filter-action-link:hover {
-            color: #ffffff;
-        }
+        .filter-action-link:hover { color: #ffffff; }
 
         .filter-dropdown-list {
             overflow-y: auto;
@@ -219,12 +209,8 @@
             gap: 2px;
         }
 
-        .filter-dropdown-list::-webkit-scrollbar {
-            width: 4px;
-        }
-        .filter-dropdown-list::-webkit-scrollbar-thumb {
-            background: #333844;
-        }
+        .filter-dropdown-list::-webkit-scrollbar { width: 4px; }
+        .filter-dropdown-list::-webkit-scrollbar-thumb { background: #333844; }
 
         .filter-check-item {
             display: flex;
@@ -239,11 +225,7 @@
             transition: background 0.1s ease;
         }
 
-        .filter-check-item:hover {
-            background: #1c1f28;
-            color: #ffffff;
-        }
-
+        .filter-check-item:hover { background: #1c1f28; color: #ffffff; }
         .filter-check-item input[type="checkbox"] {
             accent-color: var(--v4-red);
             cursor: pointer;
@@ -251,7 +233,6 @@
             height: 13px;
             margin: 0;
         }
-
         .filter-check-label {
             flex-grow: 1;
             overflow: hidden;
@@ -266,7 +247,6 @@
             align-items: center;
             gap: 6px;
         }
-
         .month-select-wrapper label {
             font-size: 0.60em;
             font-weight: 800;
@@ -274,7 +254,6 @@
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-
         .custom-select-month {
             background: #141418;
             color: #ffffff;
@@ -286,22 +265,14 @@
             cursor: pointer;
             outline: none;
         }
+        .custom-select-month:focus { border-color: var(--v4-red); }
+        .logo-v4 { height: 30px; object-fit: contain; margin-left: 8px; }
 
-        .custom-select-month:focus {
-            border-color: var(--v4-red);
-        }
-
-        .logo-v4 {
-            height: 30px;
-            object-fit: contain;
-            margin-left: 8px;
-        }
-
-        /* Grid Superior de KPIs */
+        /* Grid Superior de KPIs com alinhamento rigoroso */
         .kpi-row {
             flex-shrink: 0;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
             margin-bottom: 12px;
         }
@@ -310,30 +281,25 @@
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-top: 3px solid #cbd5e1;
-            padding: 8px 12px;
+            padding: 10px 14px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
+            min-height: 84px;
         }
 
-        .kpi-card.highlight {
-            border-top-color: var(--v4-red);
-        }
-
-        .kpi-card.today {
-            border-top-color: var(--cyan-accent);
-        }
-
-        .kpi-card.success {
-            border-top-color: var(--green);
-        }
+        .kpi-card.highlight { border-top-color: var(--v4-red); }
+        .kpi-card.today { border-top-color: var(--cyan-accent); }
+        .kpi-card.success { border-top-color: var(--green); }
+        .kpi-card.danger { border-top-color: var(--v4-red); }
 
         .kpi-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            line-height: 1;
         }
 
         .kpi-label {
@@ -344,56 +310,71 @@
             color: var(--text-muted);
         }
 
-        .kpi-pct-badge {
-            font-size: 0.82em;
-            font-weight: 900;
-            color: #ffffff;
-        }
+        .kpi-pct-badge { font-size: 0.82em; font-weight: 900; color: #ffffff; }
+        .kpi-pct-badge.green { color: var(--green); text-shadow: 0 0 10px var(--green-glow); }
+        .kpi-pct-badge.red { color: var(--v4-red); text-shadow: 0 0 10px var(--v4-red-glow); }
 
-        .kpi-pct-badge.green {
-            color: var(--green);
-            text-shadow: 0 0 10px var(--green-glow);
-        }
-
+        /* Caixa de valores: alinhamento perfeito na base */
         .kpi-values-box {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
+            align-items: flex-end;
+            margin-bottom: 8px;
+            min-height: 34px;
         }
 
         .kpi-val-main {
-            font-size: 1.20em;
+            font-size: 1.22em;
             font-weight: 900;
             color: var(--green);
-            line-height: 1.1;
+            line-height: 1;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
         }
 
-        .kpi-val-target {
-            font-size: 0.78em;
-            font-weight: 800;
-            color: #cbd5e1;
+        .kpi-val-main.white { color: #ffffff; }
+        .kpi-val-main.red { color: var(--v4-red); text-shadow: 0 0 8px rgba(237, 28, 36, 0.3); }
+
+        /* Coluna secundária de meta padronizada em 2 linhas */
+        .kpi-sub-target {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
             text-align: right;
+            line-height: 1.15;
+            white-space: nowrap;
+        }
+        .kpi-sub-label {
+            font-size: 0.60em;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 2px;
+        }
+        .kpi-sub-val {
+            font-size: 0.80em;
+            font-weight: 800;
+            color: #e2e8f0;
+            letter-spacing: -0.2px;
         }
 
         .kpi-bar-bg {
             background: #16181d;
-            height: 5px;
+            height: 4px;
             width: 100%;
             overflow: hidden;
             border: 1px solid #232730;
         }
-
         .kpi-bar-fill {
             height: 100%;
             width: 0%;
             background: linear-gradient(90deg, #ffc02a 0%, var(--green) 100%);
-            transition: width 0.6s ease;
+            transition: width 0.6s ease, background 0.3s ease;
         }
-
-        .kpi-bar-fill.fill-red {
-            background: linear-gradient(90deg, var(--v4-red) 0%, var(--green) 100%);
-        }
+        .kpi-bar-fill.fill-red { background: linear-gradient(90deg, var(--v4-red) 0%, var(--green) 100%); }
+        .kpi-bar-fill.fill-danger { background: var(--v4-red); }
 
         /* Layout Principal do Dash */
         .workspace-grid {
@@ -438,15 +419,42 @@
             gap: 10px;
         }
 
-        /* Selo ON TRACK */
-        .wax-seal-m2,
-        .wax-seal-m2 * {
-            border-radius: 50% !important;
+        /* Seletor de Modo do Gráfico (Acumulado vs Por Dia) */
+        .chart-mode-toggle {
+            display: flex;
+            gap: 4px;
+            background: #09090c;
+            border: 1px solid #272a33;
+            padding: 2px;
+            /* Added margin-right to prevent seal overlap */
+            margin-right: 35px;
         }
 
+        .chart-mode-btn {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-size: 0.60em;
+            font-weight: 800;
+            padding: 3px 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            transition: all 0.15s ease;
+        }
+
+        .chart-mode-btn.active {
+            background: #1f2229;
+            color: #ffffff;
+            border: 1px solid var(--v4-red);
+        }
+
+        /* Selo ON TRACK */
+        .wax-seal-m2, .wax-seal-m2 * { border-radius: 50% !important; }
         .wax-seal-m2 {
             position: absolute;
-            right: 14px;
+            /* Adjusted right position so it sits perfectly in the header edge */
+            right: 12px;
             top: 50%;
             transform: translateY(-50%) rotate(8deg);
             width: 28px;
@@ -461,11 +469,7 @@
             user-select: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-
-        .wax-seal-m2:hover {
-            transform: translateY(-50%) rotate(0deg) scale(1.15);
-        }
-
+        .wax-seal-m2:hover { transform: translateY(-50%) rotate(0deg) scale(1.15); }
         .wax-seal-m2 .wax-seal-inner {
             width: 20px;
             height: 20px;
@@ -476,20 +480,8 @@
             justify-content: center;
             line-height: 0.85;
         }
-
-        .wax-seal-m2 .wax-seal-text-on {
-            font-size: 5.5px;
-            font-weight: 900;
-            color: #fff0f1;
-            letter-spacing: 0.6px;
-        }
-
-        .wax-seal-m2 .wax-seal-text-track {
-            font-size: 4px;
-            font-weight: 900;
-            color: #ffd4d7;
-            letter-spacing: 0.5px;
-        }
+        .wax-seal-m2 .wax-seal-text-on { font-size: 5.5px; font-weight: 900; color: #fff0f1; letter-spacing: 0.6px; }
+        .wax-seal-m2 .wax-seal-text-track { font-size: 4px; font-weight: 900; color: #ffd4d7; letter-spacing: 0.5px; }
 
         .m2-card-body {
             flex-grow: 1;
@@ -511,6 +503,7 @@
             border: 1px solid var(--border);
             padding: 8px 12px;
             gap: 6px;
+            position: relative;
         }
 
         .m2-chart-legend {
@@ -524,35 +517,11 @@
             border-bottom: 1px solid #1a1e26;
             padding-bottom: 4px;
         }
-
-        .m2-leg-group {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .m2-leg-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #94a3b8;
-        }
-
-        .m2-leg-line {
-            width: 14px;
-            height: 2px;
-            display: inline-block;
-        }
-
-        .m2-leg-line.meta {
-            background: #64748b;
-            border-top: 1px dashed #94a3b8;
-        }
-
-        .m2-leg-line.real {
-            background: var(--green);
-            box-shadow: 0 0 6px var(--green-glow);
-        }
+        .m2-leg-group { display: flex; align-items: center; gap: 14px; }
+        .m2-leg-item { display: flex; align-items: center; gap: 6px; color: #94a3b8; }
+        .m2-leg-line { width: 14px; height: 2px; display: inline-block; }
+        .m2-leg-line.meta { background: #64748b; border-top: 1px dashed #94a3b8; }
+        .m2-leg-line.real { background: var(--green); box-shadow: 0 0 6px var(--green-glow); }
 
         .m2-chart-svg-wrap {
             flex-grow: 1;
@@ -560,12 +529,7 @@
             min-height: 0;
             position: relative;
         }
-
-        .m2-chart-svg-wrap svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
+        .m2-chart-svg-wrap svg { width: 100%; height: 100%; display: block; }
 
         /* Hero Realizado e Meta */
         .m2-hero {
@@ -579,7 +543,6 @@
             gap: 12px;
             width: 100%;
         }
-
         .m2-hero-item {
             display: flex;
             flex-direction: column;
@@ -587,32 +550,10 @@
             flex: 1 1 50%;
             min-width: 0;
         }
-
-        .m2-hero-item.right {
-            align-items: flex-end;
-            text-align: right;
-        }
-
-        .m2-hero-lbl {
-            font-size: 0.60em;
-            font-weight: 800;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 2px;
-        }
-
-        .m2-hero-val {
-            font-size: 1.15em;
-            font-weight: 900;
-            color: var(--green);
-            line-height: 1.1;
-            letter-spacing: -0.3px;
-        }
-
-        .m2-hero-val.meta-val {
-            color: #e2e8f0;
-        }
+        .m2-hero-item.right { align-items: flex-end; text-align: right; }
+        .m2-hero-lbl { font-size: 0.60em; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+        .m2-hero-val { font-size: 1.15em; font-weight: 900; color: var(--green); line-height: 1.1; letter-spacing: -0.3px; }
+        .m2-hero-val.meta-val { color: #e2e8f0; }
 
         /* Painel Lateral: Tabela / Lista Diária */
         .daily-panel {
@@ -623,7 +564,6 @@
             flex-direction: column;
             min-height: 0;
         }
-
         .daily-panel-header {
             background: #141416;
             border-bottom: 1px solid #26262a;
@@ -633,23 +573,8 @@
             align-items: center;
             flex-shrink: 0;
         }
-
-        .daily-panel-header h3 {
-            margin: 0;
-            font-size: 0.82em;
-            font-weight: 900;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            color: #e2e8f0;
-        }
-
-        .daily-panel-badge {
-            font-size: 0.58em;
-            font-weight: 800;
-            color: var(--cyan-accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .daily-panel-header h3 { margin: 0; font-size: 0.82em; font-weight: 900; letter-spacing: 1.2px; text-transform: uppercase; color: #e2e8f0; }
+        .daily-panel-badge { font-size: 0.58em; font-weight: 800; color: var(--cyan-accent); text-transform: uppercase; letter-spacing: 1px; }
 
         .daily-list {
             flex-grow: 1;
@@ -660,13 +585,8 @@
             gap: 5px;
             min-height: 0;
         }
-
-        .daily-list::-webkit-scrollbar {
-            width: 4px;
-        }
-        .daily-list::-webkit-scrollbar-thumb {
-            background: #2b2e38;
-        }
+        .daily-list::-webkit-scrollbar { width: 4px; }
+        .daily-list::-webkit-scrollbar-thumb { background: #2b2e38; }
 
         .daily-row {
             background: #0d0d10;
@@ -677,81 +597,38 @@
             justify-content: space-between;
             gap: 8px;
             font-size: 0.72em;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.15s ease;
         }
+        .daily-row:hover { background: #171922; border-color: #3b4252; }
+        .daily-row.today-highlight { border-left: 3px solid var(--cyan-accent); background: #10141d; }
+        .daily-row.inspected-highlight { border: 1px solid var(--cyan-accent); background: #131b26; box-shadow: inset 0 0 8px rgba(56, 189, 248, 0.15); }
+        .daily-row.achieved { border-left: 3px solid var(--green); }
 
-        .daily-row.today-highlight {
-            border-left: 3px solid var(--cyan-accent);
-            background: #10141d;
-        }
-
-        .daily-row.achieved {
-            border-left: 3px solid var(--green);
-        }
-
-        .daily-date-col {
-            display: flex;
-            flex-direction: column;
-            min-width: 54px;
-        }
-
-        .daily-day-tag {
-            font-weight: 900;
-            color: #ffffff;
-            font-size: 0.92em;
-        }
-
-        .daily-date-sub {
-            font-size: 0.75em;
-            color: var(--text-subtle);
-        }
-
-        .daily-values-col {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            flex-grow: 1;
-        }
-
-        .daily-real-val {
-            font-weight: 800;
-            color: var(--green);
-        }
-
-        .daily-meta-val {
-            font-size: 0.82em;
-            color: var(--text-muted);
-        }
-
-        .daily-status-col {
-            min-width: 45px;
-            text-align: right;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .daily-pct-pill {
-            font-size: 0.80em;
-            font-weight: 900;
-            color: #e2e8f0;
-        }
-
-        .daily-pct-pill.achieved {
-            color: var(--green);
-        }
+        .daily-date-col { display: flex; flex-direction: column; min-width: 54px; }
+        .daily-day-tag { font-weight: 900; color: #ffffff; font-size: 0.92em; }
+        .daily-date-sub { font-size: 0.75em; color: var(--text-subtle); }
+        .daily-values-col { display: flex; flex-direction: column; align-items: flex-end; flex-grow: 1; }
+        .daily-real-val { font-weight: 800; color: var(--green); }
+        .daily-meta-val { font-size: 0.82em; color: var(--text-muted); }
+        .daily-status-col { min-width: 45px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; }
+        .daily-pct-pill { font-size: 0.80em; font-weight: 900; color: #e2e8f0; }
+        .daily-pct-pill.achieved { color: var(--green); }
 
         /* Tooltip flutuante do gráfico */
         #chart-tooltip {
-            position: absolute;
+            position: absolute; /* Kept absolute, but positioned relative to viewport in JS */
             display: none;
-            background: #141416;
+            background: rgba(15, 17, 23, 0.96);
             border: 1px solid #333842;
-            padding: 6px 10px;
-            font-size: 0.70em;
+            padding: 8px 12px;
+            font-size: 0.72em;
             color: #ffffff;
             pointer-events: none;
-            z-index: 50;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.8);
+            z-index: 9999; /* Increased z-index */
+            box-shadow: 0 8px 24px rgba(0,0,0,0.85);
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -839,13 +716,12 @@
                 </div>
             </div>
 
-            <!-- Botão Limpar Todos os Filtros -->
             <button type="button" class="filter-btn" style="border-color:#333844;color:#94a3b8;" onclick="resetAllFilters()">
                 ✕ RESET FILTROS
             </button>
 
-            <!-- Reset de Inspeção de Dia (se houver dia selecionado) -->
-            <button type="button" class="filter-btn" id="btn-reset-inspection" style="display:none;border-color:var(--cyan-accent);color:var(--cyan-accent);" onclick="clearDayInspection()">
+            <!-- Reset de Inspeção de Dia -->
+            <button type="button" class="filter-btn" id="btn-reset-inspection" style="display:none;border-color:var(--cyan-accent);color:var(--cyan-accent);background:#101a24;" onclick="clearDayInspection()">
                 ↺ VOLTAR P/ HOJE
             </button>
 
@@ -860,63 +736,75 @@
 
         <!-- Linha Superior de KPIs Resumo -->
         <div class="kpi-row">
-            <!-- KPI 1: Realizado vs Meta Acumulada -->
+            <!-- KPI 1: Realizado vs Meta Acumulada do Mês -->
             <div class="kpi-card highlight">
                 <div class="kpi-header">
-                    <span class="kpi-label" id="kpi-month-label">Progresso do Mês</span>
+                    <span class="kpi-label" id="kpi-month-label">PROGRESSO DO MÊS</span>
                     <span class="kpi-pct-badge" id="kpi-month-pct">0.0%</span>
                 </div>
                 <div class="kpi-values-box">
                     <span class="kpi-val-main" id="kpi-month-real">R$ 0,00</span>
-                    <span class="kpi-val-target" id="kpi-month-target">Meta: R$ 0,00</span>
+                    <div class="kpi-sub-target">
+                        <span class="kpi-sub-label">Meta Mês:</span>
+                        <span class="kpi-sub-val" id="kpi-month-target">R$ 0</span>
+                    </div>
                 </div>
                 <div class="kpi-bar-bg">
-                    <div class="kpi-bar-fill fill-red" id="kpi-month-bar"></div>
+                    <div class="kpi-bar-fill fill-red" id="kpi-month-bar" style="width: 0%;"></div>
                 </div>
             </div>
 
-            <!-- KPI 2: Ritmo do Último Dia / Hoje -->
-            <div class="kpi-card today">
+            <!-- KPI 2: Ritmo do Último Dia / Hoje (ou Dia Inspecionado) -->
+            <div class="kpi-card today" id="kpi-card-day">
                 <div class="kpi-header">
-                    <span class="kpi-label" id="kpi-day-label">Realizado Dia Atual</span>
+                    <span class="kpi-label" id="kpi-day-label">HOJE (DIA 0)</span>
                     <span class="kpi-pct-badge" id="kpi-day-pct">0.0%</span>
                 </div>
                 <div class="kpi-values-box">
                     <span class="kpi-val-main" id="kpi-day-real">R$ 0,00</span>
-                    <span class="kpi-val-target" id="kpi-day-target">Meta: R$ 0,00</span>
+                    <div class="kpi-sub-target">
+                        <span class="kpi-sub-label" id="kpi-day-sub-label">Meta Dia:</span>
+                        <span class="kpi-sub-val" id="kpi-day-target">R$ 0</span>
+                    </div>
                 </div>
                 <div class="kpi-bar-bg">
-                    <div class="kpi-bar-fill" id="kpi-day-bar"></div>
+                    <div class="kpi-bar-fill" id="kpi-day-bar" style="width: 0%;"></div>
                 </div>
             </div>
 
             <!-- KPI 3: Ritmo Diário Restante Necessário -->
             <div class="kpi-card" id="kpi-card-runrate">
                 <div class="kpi-header">
-                    <span class="kpi-label" id="kpi-runrate-title">Run-Rate / Meta Restante Dia</span>
-                    <span class="kpi-pct-badge" id="kpi-days-remaining">0 dias rest.</span>
+                    <span class="kpi-label" id="kpi-runrate-title">RITMO NECESSÁRIO / DIA</span>
+                    <span class="kpi-pct-badge" id="kpi-days-remaining" style="color:var(--cyan-accent);">0 dia(s) rest.</span>
                 </div>
                 <div class="kpi-values-box">
-                    <span class="kpi-val-main" id="kpi-runrate-val" style="color: #cbd5e1;">R$ 0,00</span>
-                    <span class="kpi-val-target" id="kpi-remaining-target">Faltam: R$ 0,00</span>
+                    <span class="kpi-val-main white" id="kpi-runrate-val">R$ 0,00</span>
+                    <div class="kpi-sub-target">
+                        <span class="kpi-sub-label" id="kpi-remaining-sub-label">Faltam:</span>
+                        <span class="kpi-sub-val" id="kpi-remaining-target">R$ 0</span>
+                    </div>
                 </div>
                 <div class="kpi-bar-bg">
-                    <div class="kpi-bar-fill" id="kpi-runrate-bar" style="width: 100%; background: #262933;"></div>
+                    <div class="kpi-bar-fill" id="kpi-runrate-bar" style="width: 100%; background: #ffc02a;"></div>
                 </div>
             </div>
 
             <!-- KPI 4: Status Operacional -->
-            <div class="kpi-card success" id="kpi-card-status">
+            <div class="kpi-card danger" id="kpi-card-status">
                 <div class="kpi-header">
-                    <span class="kpi-label" id="kpi-gap-title">Status da Meta</span>
-                    <span class="kpi-pct-badge" id="kpi-status-badge">EM CURSO</span>
+                    <span class="kpi-label" id="kpi-gap-title">STATUS DA META</span>
+                    <span class="kpi-pct-badge red" id="kpi-status-badge">ABAIXO</span>
                 </div>
                 <div class="kpi-values-box">
-                    <span class="kpi-val-main" id="kpi-gap-val">R$ 0,00</span>
-                    <span class="kpi-val-target" id="kpi-gap-label">Diferença</span>
+                    <span class="kpi-val-main red" id="kpi-gap-val">- R$ 0,00</span>
+                    <div class="kpi-sub-target">
+                        <span class="kpi-sub-label">Comparativo:</span>
+                        <span class="kpi-sub-val" id="kpi-gap-label">Diferença</span>
+                    </div>
                 </div>
                 <div class="kpi-bar-bg">
-                    <div class="kpi-bar-fill" id="kpi-status-bar" style="width: 50%;"></div>
+                    <div class="kpi-bar-fill fill-danger" id="kpi-status-bar" style="width: 0%;"></div>
                 </div>
             </div>
         </div>
@@ -924,12 +812,17 @@
         <!-- Área Principal: Gráfico Expandido + Tabela Diária -->
         <div class="workspace-grid">
             
-            <!-- Painel Esquerdo: Curva Acumulada Meta vs Realizado -->
+            <!-- Painel Esquerdo: Curva Acumulada / Recebido por Dia -->
             <div class="m2-dashboard-card">
                 <div class="m2-card-header">
                     <h2>
-                        <span>CURVA ACUMULADA - META VS REALIZADO</span>
+                        <span id="chart-main-title">CURVA ACUMULADA - META VS REALIZADO</span>
                     </h2>
+                    <!-- Toggle entre Acumulado e Recebido por Dia -->
+                    <div class="chart-mode-toggle">
+                        <button type="button" class="chart-mode-btn active" id="btn-mode-accum" onclick="setChartMode('accum')">ACUMULADO</button>
+                        <button type="button" class="chart-mode-btn" id="btn-mode-daily" onclick="setChartMode('daily')">POR DIA</button>
+                    </div>
                     <!-- Selo ON TRACK -->
                     <div id="m2-seal" class="wax-seal-m2" style="display: none;" title="Meta Atingida!">
                         <div class="wax-seal-inner">
@@ -942,7 +835,7 @@
                     <!-- Container Gráfico SVG -->
                     <div class="m2-chart-container">
                         <div class="m2-chart-legend">
-                            <div class="m2-leg-group">
+                            <div class="m2-leg-group" id="chart-legend-box">
                                 <span class="m2-leg-item"><span class="m2-leg-line real"></span>REALIZADO ACUMULADO</span>
                                 <span class="m2-leg-item"><span class="m2-leg-line meta"></span>META ACUMULADA</span>
                             </div>
@@ -956,11 +849,11 @@
                     <!-- Rodapé Numérico -->
                     <div class="m2-hero">
                         <div class="m2-hero-item">
-                            <span class="m2-hero-lbl">TOTAL REALIZADO ACUMULADO</span>
+                            <span class="m2-hero-lbl" id="footer-real-lbl">TOTAL REALIZADO ACUMULADO</span>
                             <span id="m2-recebido" class="m2-hero-val">R$ 0,00</span>
                         </div>
                         <div class="m2-hero-item right">
-                            <span class="m2-hero-lbl">META PROVISIONADA ACUMULADA</span>
+                            <span class="m2-hero-lbl" id="footer-meta-lbl">META PROVISIONADA ACUMULADA</span>
                             <span id="m2-meta" class="m2-hero-val meta-val">R$ 0,00</span>
                         </div>
                     </div>
@@ -971,30 +864,34 @@
             <div class="daily-panel">
                 <div class="daily-panel-header">
                     <h3>Acompanhamento por Dia</h3>
-                    <span class="daily-panel-badge" id="daily-panel-count">0 DIAS</span>
+                    <span class="daily-panel-badge" id="daily-panel-count">0 DIAS REGISTRADOS</span>
                 </div>
                 <div class="daily-list" id="daily-list-container">
-                    <!-- Linhas geradas dinamicamente -->
+                    <!-- Linhas geradas dinamicamente com evento de clique -->
                 </div>
             </div>
 
         </div>
 
-        <!-- Tooltip flutuante -->
-        <div id="chart-tooltip"></div>
     </div>
+
+    <!-- Tooltip flutuante -->
+    <!-- MOVED outside #tv-board to avoid scaling issues -->
+    <div id="chart-tooltip"></div>
+
     <script>
         // Auto-scaling para telas de TV e monitores (1280x720 base)
+        let currentScale = 1; // Keep track of scale for tooltip calculations
         function autoScaleDashboard() {
             const board = document.getElementById('tv-board');
             if (!board) return;
-            const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
-            board.style.transform = `scale(${scale})`;
+            currentScale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+            board.style.transform = `scale(${currentScale})`;
         }
         window.addEventListener('resize', autoScaleDashboard);
         autoScaleDashboard();
 
-        // Dataset incorporado completo para fallback imediato
+        // Dados Embutidos Originais
         const EMBEDDED_RAW_DATA = [
             {"dt_paid":"7/1/2026","franchise":"ROSOLEM VERONEZE & CORDEIRO ASSESSORIA DE MARKETING LTDA","acumulado_meta_dia":"0","acumulado_recebido_dia":"3.258,86","delta_meta_dia":"3.258,86","hunter":"Bruno Ferreira","sigla_regional":"SP1","horizonte":"H4"},
             {"dt_paid":"14/1/2026","franchise":"ROSOLEM VERONEZE & CORDEIRO ASSESSORIA DE MARKETING LTDA","acumulado_meta_dia":"2.131,6","acumulado_recebido_dia":"3.258,86","delta_meta_dia":"1.127,26","hunter":"Bruno Ferreira","sigla_regional":"SP1","horizonte":"H4"},
@@ -1070,7 +967,7 @@
             {"dt_paid":"25/4/2026","franchise":"ROSOLEM VERONEZE & CORDEIRO ASSESSORIA DE MARKETING LTDA","acumulado_meta_dia":"69.045,66","acumulado_recebido_dia":"52.642,61","delta_meta_dia":"-16.403,05","hunter":"Bruno Ferreira","sigla_regional":"SP1","horizonte":"H4"},
             {"dt_paid":"26/4/2026","franchise":"ROSOLEM VERONEZE & CORDEIRO ASSESSORIA DE MARKETING LTDA","acumulado_meta_dia":"69.844,03","acumulado_recebido_dia":"52.642,61","delta_meta_dia":"-17.201,43","hunter":"Bruno Ferreira","sigla_regional":"SP1","horizonte":"H4"},
             {"dt_paid":"27/4/2026","franchise":"ROSOLEM VERONEZE & CORDEIRO ASSESSORIA DE MARKETING LTDA","acumulado_meta_dia":"71.175,43","acumulado_recebido_dia":"56.652,91","delta_meta_dia":"-14.522,52","hunter":"Bruno Ferreira","sigla_regional":"SP1","horizonte":"H4"},
-            {"dt_paid":"28/4/2026","franchise":"ROSOLEM VERONEZE & CORDEIRO ASSESSORIA DE MARKETING LTDA","acumulado_meta_dia":"74.597,29","acumulado_recebido_dia":"57.760,89","delta_meta_dia":"-16.836,4","hunter":"Bruno Ferreira","sigla_regional":"SP1","hunter":"Bruno Ferreira","sigla_regional":"SP1","horizonte":"H4"},
+            {"dt_paid":"28/4/2026","franchise":"ROSOLEM VERONEZE & CORDEIRO ASSESSORIA DE MARKETING LTDA","acumulado_meta_dia":"74.597,29","acumulado_recebido_dia":"57.760,89","delta_meta_dia":"-16.836,4","hunter":"Bruno Ferreira","sigla_regional":"SP1","horizonte":"H4"},
             {"dt_paid":"29/4/2026","franchise":"ROSOLEM VERONEZE & CORDEIRO ASSESSORIA DE MARKETING LTDA","acumulado_meta_dia":"79.522,53","acumulado_recebido_dia":"59.756,75","delta_meta_dia":"-19.765,78","hunter":"Bruno Ferreira","sigla_regional":"SP1","horizonte":"H4"},
             {"dt_paid":"30/4/2026","franchise":"ROSOLEM VERONEZE & CORDEIRO ASSESSORIA DE MARKETING LTDA","acumulado_meta_dia":"81.007,31","acumulado_recebido_dia":"64.229,07","delta_meta_dia":"-16.778,24","hunter":"Bruno Ferreira","sigla_regional":"SP1","horizonte":"H4"},
             {"dt_paid":"1/10/2026","franchise":"ROSOLEM VERONEZE & CORDEIRO ASSESSORIA DE MARKETING LTDA","acumulado_meta_dia":"423,34","acumulado_recebido_dia":"798,17","delta_meta_dia":"374,83","hunter":"Bruno Ferreira","sigla_regional":"SP1","horizonte":"H4"},
@@ -1123,8 +1020,6 @@
 
         // Estado Global dos Dados e Filtros
         let RAW_RECORDS = [];
-
-        // null = TODOS (sem restrição). Set() com strings = apenas os selecionados.
         let SELECTED_FILTERS = {
             horizonte: null,
             regional: null,
@@ -1134,7 +1029,11 @@
 
         let ALL_MONTH_KEYS = [];
         let currentSelectedMonth = "";
-        let inspectedDay = null; // Quando o usuário clica num dia específico no gráfico ou na lista
+        let inspectedDay = null; 
+        let chartMode = 'accum'; // 'accum' ou 'daily'
+        let currentDaysList = []; // Array de dados diários já consolidados
+        let totalDiasMesGlobal = 31;
+        let baseDayCutGlobal = 13; // O dia base atual no sistema
 
         const MONTH_NAMES = {
             1: "Janeiro", 2: "Fevereiro", 3: "Março", 4: "Abril",
@@ -1146,25 +1045,19 @@
             if (typeof val === 'number') return isNaN(val) ? 0 : val;
             if (!val) return 0;
             const str = String(val).replace('%', '').trim();
-            // Se já for uma string numérica formatada em padrão JS (ex: "11842.90" vindo de cálculos anteriores)
-            if (/^-?\d+(\.\d+)?$/.test(str)) {
-                return parseFloat(str) || 0;
-            }
-            // Padrão brasileiro: "11.842,90"
+            if (/^-?\d+(\.\d+)?$/.test(str)) return parseFloat(str) || 0;
             return parseFloat(str.replace(/\./g, '').replace(',', '.').trim()) || 0;
         }
 
-        function formatBRL(val) {
+        function formatBRL(val, decimals = 2) {
             const num = typeof val === 'number' ? val : parseNumber(val);
-            return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(num);
+            return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: decimals, maximumFractionDigits: decimals }).format(num);
         }
 
         function formatBRLCompact(val) {
             const num = typeof val === 'number' ? val : parseNumber(val);
             return new Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-                maximumFractionDigits: 0
+                style: 'currency', currency: 'BRL', maximumFractionDigits: 0
             }).format(num);
         }
 
@@ -1179,6 +1072,13 @@
             return { dia, mes, ano, monthKey, display };
         }
 
+        function formatAxisLabel(val) {
+            if (val === 0) return "R$ 0";
+            if (val >= 1000000) return `R$ ${(val / 1000000).toFixed(1)}M`;
+            if (val >= 1000) return `R$ ${(val / 1000).toFixed(0)}k`;
+            return `R$ ${val.toFixed(0)}`;
+        }
+
         // Ingestão e normalização correta dos dados
         function ingestRawData(rawList) {
             RAW_RECORDS = [];
@@ -1189,34 +1089,48 @@
                 const regional = (row.sigla_regional || "N/A").trim();
                 const hunter = (row.hunter || "N/A").trim();
                 const horizonte = (row.horizonte || "N/A").trim();
-                const dmy = parseDateDMY(row.dt_paid);
 
-                const metaAcum = parseNumber(row.acumulado_meta_dia);
-                const realAcum = parseNumber(row.acumulado_recebido_dia);
-                const deltaMeta = parseNumber(row.delta_meta_dia);
+                let historico = [];
+                if (typeof row.historico_diario === 'string') {
+                    try { historico = JSON.parse(row.historico_diario); } 
+                    catch (e) { console.error("Erro ao ler array JSON", e); }
+                } else if (Array.isArray(row.historico_diario)) {
+                    historico = row.historico_diario;
+                } else if (row.acumulado_meta_dia !== undefined) {
+                    // Adaptando dados flat
+                    historico = [[
+                        row.dt_paid, 
+                        row.acumulado_meta_dia, 
+                        row.acumulado_recebido_dia, 
+                        row.delta_meta_dia, 
+                        row.acumulado_recebido_dia, 
+                        row.acumulado_meta_dia
+                    ]];
+                }
 
-                setMonths.add(dmy.monthKey);
+                historico.forEach(diaData => {
+                    const dt_paid = diaData[0];
+                    const dmy = parseDateDMY(dt_paid);
+                    const metaAcum = parseNumber(diaData[1]);
+                    const realAcum = parseNumber(diaData[2]);
+                    const deltaMeta = parseNumber(diaData[3]);
 
-                RAW_RECORDS.push({
-                    franchise,
-                    regional,
-                    hunter,
-                    horizonte,
-                    dt_paid: row.dt_paid,
-                    dt_dia: dmy.display,
-                    dia: dmy.dia,
-                    mes: dmy.mes,
-                    ano: dmy.ano,
-                    monthKey: dmy.monthKey,
-                    meta_acumulada: metaAcum,
-                    realizado_acumulado: realAcum,
-                    delta_meta_dia: deltaMeta
+                    setMonths.add(dmy.monthKey);
+
+                    RAW_RECORDS.push({
+                        franchise, regional, hunter, horizonte,
+                        dt_paid: dt_paid, dt_dia: dmy.display,
+                        dia: dmy.dia, mes: dmy.mes, ano: dmy.ano,
+                        monthKey: dmy.monthKey,
+                        meta_acumulada: metaAcum,
+                        realizado_acumulado: realAcum,
+                        delta_meta_dia: deltaMeta
+                    });
                 });
             });
 
             ALL_MONTH_KEYS = Array.from(setMonths).sort((a, b) => b.localeCompare(a));
             
-            // Padrão: Mês mais recente disponível
             if (!currentSelectedMonth || !ALL_MONTH_KEYS.includes(currentSelectedMonth)) {
                 currentSelectedMonth = ALL_MONTH_KEYS[0] || "2026-10";
             }
@@ -1240,28 +1154,16 @@
 
         function handleMonthChange(newMonth) {
             currentSelectedMonth = newMonth;
-            inspectedDay = null; // Reseta seleção de dia ao trocar mês
+            inspectedDay = null;
             SELECTED_FILTERS = { horizonte: null, regional: null, hunter: null, franquia: null };
             buildFilterDropdowns();
             renderDashboard();
         }
 
-        // Interação de inspeção por clique no dia
-        function selectDayInspection(dia) {
-            inspectedDay = dia;
-            renderDashboard();
-        }
-
-        function clearDayInspection() {
-            inspectedDay = null;
-            renderDashboard();
-        }
-
-        // Filtra registros apenas pelo mês e pelas outras categorias (Cross-Filtering)
+        // Filtra registros pelas categorias
         function getRecordsFilteredExcept(excludeCat) {
             return RAW_RECORDS.filter(rec => {
                 if (rec.monthKey !== currentSelectedMonth) return false;
-
                 if (excludeCat !== 'horizonte' && SELECTED_FILTERS.horizonte !== null) {
                     if (!SELECTED_FILTERS.horizonte.has(rec.horizonte)) return false;
                 }
@@ -1274,40 +1176,28 @@
                 if (excludeCat !== 'franquia' && SELECTED_FILTERS.franquia !== null) {
                     if (!SELECTED_FILTERS.franquia.has(rec.franchise)) return false;
                 }
-
                 return true;
             });
         }
 
-        // Retorna as opções válidas e disponíveis para uma categoria no contexto atual
         function getAvailableOptions(cat) {
             const validRecords = getRecordsFilteredExcept(cat);
-            const keyMap = {
-                horizonte: 'horizonte',
-                regional: 'regional',
-                hunter: 'hunter',
-                franquia: 'franchise'
-            };
+            const keyMap = { horizonte: 'horizonte', regional: 'regional', hunter: 'hunter', franquia: 'franchise' };
             const prop = keyMap[cat];
             const set = new Set();
-            validRecords.forEach(r => {
-                if (r[prop]) set.add(r[prop]);
-            });
+            validRecords.forEach(r => { if (r[prop]) set.add(r[prop]); });
             return Array.from(set).sort();
         }
 
-        // Renderiza listas de checkboxes dinamicamente respeitando as dependências entre filtros
+        // Renderiza listas de checkboxes
         function buildFilterDropdowns() {
             const categories = ['horizonte', 'regional', 'hunter', 'franquia'];
-
             categories.forEach(cat => {
                 const listEl = document.getElementById(`list-${cat}`);
                 if (!listEl) return;
                 listEl.innerHTML = '';
-
                 const availableOptions = getAvailableOptions(cat);
 
-                // Se houver seleção ativa, remove opções que não existem mais no contexto
                 if (SELECTED_FILTERS[cat] !== null) {
                     const validSet = new Set();
                     SELECTED_FILTERS[cat].forEach(val => {
@@ -1317,14 +1207,12 @@
                 }
 
                 if (availableOptions.length === 0) {
-                    listEl.innerHTML = '<div style="color:#64748b;font-size:0.65em;padding:8px 6px;">Nenhuma opção disponível no período/filtro</div>';
+                    listEl.innerHTML = '<div style="color:#64748b;font-size:0.65em;padding:8px 6px;">Nenhuma opção disponível</div>';
                 } else {
                     availableOptions.forEach(val => {
                         const row = document.createElement('label');
                         row.className = 'filter-check-item';
-                        
                         const isChecked = SELECTED_FILTERS[cat] === null || SELECTED_FILTERS[cat].has(val);
-                        
                         row.innerHTML = `
                             <input type="checkbox" value="${encodeURIComponent(val)}" ${isChecked ? 'checked' : ''} onchange="handleCheckboxToggle('${cat}', this.value, this.checked)">
                             <span class="filter-check-label" title="${val}">${val}</span>
@@ -1332,15 +1220,12 @@
                         listEl.appendChild(row);
                     });
                 }
-
                 updateFilterButtonState(cat, availableOptions);
             });
         }
 
         function updateFilterButtonState(cat, availableOptions = null) {
-            if (!availableOptions) {
-                availableOptions = getAvailableOptions(cat);
-            }
+            if (!availableOptions) availableOptions = getAvailableOptions(cat);
             const countBadge = document.getElementById(`count-${cat}`);
             const btn = document.querySelector(`#filter-group-${cat} .filter-btn`);
 
@@ -1359,12 +1244,9 @@
             const dropdown = document.getElementById(`dropdown-${cat}`);
             const isVisible = dropdown.classList.contains('show');
             document.querySelectorAll('.filter-dropdown').forEach(d => d.classList.remove('show'));
-            if (!isVisible) {
-                dropdown.classList.add('show');
-            }
+            if (!isVisible) dropdown.classList.add('show');
         }
 
-        // Fecha menus ao clicar fora
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.filter-group')) {
                 document.querySelectorAll('.filter-dropdown').forEach(d => d.classList.remove('show'));
@@ -1375,19 +1257,14 @@
             const val = decodeURIComponent(encodedVal);
             const available = getAvailableOptions(cat);
 
-            if (SELECTED_FILTERS[cat] === null) {
-                SELECTED_FILTERS[cat] = new Set(available);
-            }
+            if (SELECTED_FILTERS[cat] === null) SELECTED_FILTERS[cat] = new Set(available);
 
             if (isChecked) {
                 SELECTED_FILTERS[cat].add(val);
-                if (SELECTED_FILTERS[cat].size >= available.length) {
-                    SELECTED_FILTERS[cat] = null;
-                }
+                if (SELECTED_FILTERS[cat].size >= available.length) SELECTED_FILTERS[cat] = null;
             } else {
                 SELECTED_FILTERS[cat].delete(val);
             }
-
             buildFilterDropdowns();
             renderDashboard();
         }
@@ -1405,41 +1282,35 @@
         }
 
         function resetAllFilters() {
-            SELECTED_FILTERS = {
-                horizonte: null,
-                regional: null,
-                hunter: null,
-                franquia: null
-            };
+            SELECTED_FILTERS = { horizonte: null, regional: null, hunter: null, franquia: null };
             inspectedDay = null;
             buildFilterDropdowns();
             renderDashboard();
         }
 
-        // Agregação Cumulativa Multidimensional de Dados
+        // Agregação Cumulativa Multidimensional de Dados (O coração matemático)
         function getAggregatedSeriesForMonth(targetMonth) {
             const matchingRecords = RAW_RECORDS.filter(rec => {
                 if (rec.monthKey !== targetMonth) return false;
-
                 if (SELECTED_FILTERS.horizonte !== null && !SELECTED_FILTERS.horizonte.has(rec.horizonte)) return false;
                 if (SELECTED_FILTERS.regional !== null && !SELECTED_FILTERS.regional.has(rec.regional)) return false;
                 if (SELECTED_FILTERS.hunter !== null && !SELECTED_FILTERS.hunter.has(rec.hunter)) return false;
                 if (SELECTED_FILTERS.franquia !== null && !SELECTED_FILTERS.franquia.has(rec.franchise)) return false;
-
                 return true;
             });
 
             if (matchingRecords.length === 0) {
-                return {
-                    dailySeries: [],
-                    totalFranchisesCount: 0
-                };
+                return { dailySeries: [], totalFranchisesCount: 0 };
             }
 
-            const distinctFranchises = Array.from(new Set(matchingRecords.map(r => r.franchise)));
-            const distinctDays = Array.from(new Set(matchingRecords.map(r => r.dia))).sort((a, b) => a - b);
+            const parts = targetMonth.split('-');
+            const selYear = parseInt(parts[0], 10);
+            const selMonth = parseInt(parts[1], 10);
+            const diasNoMes = new Date(selYear, selMonth, 0).getDate();
 
+            const distinctFranchises = Array.from(new Set(matchingRecords.map(r => r.franchise)));
             const franDayMap = {};
+            
             matchingRecords.forEach(r => {
                 if (!franDayMap[r.franchise]) franDayMap[r.franchise] = {};
                 franDayMap[r.franchise][r.dia] = r;
@@ -1449,7 +1320,7 @@
             let prevAggReal = 0;
             let prevAggMeta = 0;
 
-            distinctDays.forEach(dia => {
+            for (let dia = 1; dia <= diasNoMes; dia++) {
                 let sumMetaAcum = 0;
                 let sumRealAcum = 0;
 
@@ -1473,11 +1344,11 @@
                 const realDia = Math.max(sumRealAcum - prevAggReal, 0);
                 const metaDia = Math.max(sumMetaAcum - prevAggMeta, 0);
 
-                const sampleRec = matchingRecords.find(r => r.dia === dia) || {};
+                const dt_dia = `${String(dia).padStart(2, '0')}/${String(selMonth).padStart(2, '0')}/${selYear}`;
 
                 dailySeries.push({
                     dia: dia,
-                    dt_dia: sampleRec.dt_dia || `${String(dia).padStart(2, '0')}/${currentSelectedMonth.split('-')[1]}`,
+                    dt_dia: dt_dia,
                     meta_acumulada: Math.round(sumMetaAcum * 100) / 100,
                     realizado_acumulado: Math.round(sumRealAcum * 100) / 100,
                     meta_dia: Math.round(metaDia * 100) / 100,
@@ -1486,412 +1357,605 @@
 
                 prevAggReal = sumRealAcum;
                 prevAggMeta = sumMetaAcum;
-            });
-
-            return {
-                dailySeries,
-                totalFranchisesCount: distinctFranchises.length
-            };
-        }
-
-        // Renderiza o gráfico SVG com interatividade de clique no dia
-        function renderM2SvgChart(seriesData, activeCutDay) {
-            const chartWrap = document.getElementById('m2-chart-wrap');
-            if (!chartWrap) return;
-
-            if (!seriesData || seriesData.length === 0) {
-                chartWrap.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#64748b;font-size:0.8em;font-weight:700;">NENHUM REGISTRO LOCALIZADO PARA OS FILTROS SELECIONADOS</div>';
-                return;
             }
 
-            const w = 720;
-            const h = 260;
-            const padX = 35;
-            const padTop = 18;
-            const padBottom = 32;
-            const innerW = w - (padX * 2);
-            const innerH = h - padTop - padBottom;
-
-            const n = seriesData.length;
-            const metas = seriesData.map(d => d.meta_acumulada);
-            const realizados = seriesData.map(d => d.realizado_acumulado);
-
-            let maxVal = Math.max(...metas, ...realizados, 1);
-            maxVal *= 1.10;
-
-            const pointsMeta = [];
-            const pointsReal = [];
-
-            seriesData.forEach((d, i) => {
-                const x = n === 1 ? (w / 2) : (padX + (i / (n - 1)) * innerW);
-                const yM = padTop + innerH - (metas[i] / maxVal) * innerH;
-                const yR = padTop + innerH - (realizados[i] / maxVal) * innerH;
-                pointsMeta.push({ x, y: yM, dia: d.dia, val: metas[i], raw: d });
-                pointsReal.push({ x, y: yR, dia: d.dia, val: realizados[i], raw: d });
-            });
-
-            const pathMetaStr = pointsMeta.map((p, idx) => (idx === 0 ? `M ${p.x.toFixed(1)} ${p.y.toFixed(1)}` : `L ${p.x.toFixed(1)} ${p.y.toFixed(1)}`)).join(' ');
-            const pathRealStr = pointsReal.map((p, idx) => (idx === 0 ? `M ${p.x.toFixed(1)} ${p.y.toFixed(1)}` : `L ${p.x.toFixed(1)} ${p.y.toFixed(1)}`)).join(' ');
-
-            const firstX = pointsReal[0].x.toFixed(1);
-            const lastX = pointsReal[pointsReal.length - 1].x.toFixed(1);
-            const baseFloorY = (padTop + innerH).toFixed(1);
-            const areaRealStr = `${pathRealStr} L ${lastX} ${baseFloorY} L ${firstX} ${baseFloorY} Z`;
-
-            let step = 1;
-            if (n > 24) step = 3;
-            else if (n > 14) step = 2;
-
-            let circlesMetaHtml = '';
-            let circlesRealHtml = '';
-            let xLabelsHtml = '';
-            let hoverOverlayHtml = '';
-            let verticalGuideHtml = '';
-
-            // Localiza ponto do dia ativo
-            const activeIdx = pointsReal.findIndex(p => p.dia === activeCutDay);
-            if (activeIdx !== -1) {
-                const activeP = pointsReal[activeIdx];
-                verticalGuideHtml = `
-                    <line x1="${activeP.x.toFixed(1)}" y1="${padTop}" x2="${activeP.x.toFixed(1)}" y2="${baseFloorY}" stroke="var(--cyan-accent)" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.8" />
-                    <circle cx="${activeP.x.toFixed(1)}" cy="${activeP.y.toFixed(1)}" r="7.5" fill="none" stroke="var(--cyan-accent)" stroke-width="2.5" />
-                `;
-            }
-
-            pointsMeta.forEach((p, idx) => {
-                circlesMetaHtml += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="2.5" fill="#94a3b8" />`;
-
-                const isFirst = idx === 0;
-                const isLast = idx === n - 1;
-                const isStepTick = (idx % step === 0);
-                const isSelected = p.dia === activeCutDay;
-
-                if (isFirst || isLast || isStepTick || isSelected) {
-                    xLabelsHtml += `
-                        <text x="${p.x.toFixed(1)}" y="${(h - 10).toFixed(1)}" 
-                              font-size="${isSelected ? '10.5' : '9.5'}" 
-                              font-weight="${isSelected ? '900' : '800'}" 
-                              fill="${isSelected ? 'var(--cyan-accent)' : '#64748b'}" 
-                              text-anchor="middle" 
-                              style="cursor:pointer;" 
-                              onclick="selectDayInspection(${p.dia})">D${p.dia}</text>
-                    `;
-                }
-            });
-
-            pointsReal.forEach((p, idx) => {
-                const isLast = idx === pointsReal.length - 1;
-                const isSelected = p.dia === activeCutDay;
-
-                if (isSelected) {
-                    circlesRealHtml += `
-                        <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5.5" fill="none" stroke="var(--cyan-accent)" stroke-width="2" />
-                        <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3" fill="#ffffff" />
-                    `;
-                } else if (isLast) {
-                    circlesRealHtml += `
-                        <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5.5" fill="none" stroke="var(--green)" stroke-width="2" />
-                        <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3" fill="#ffffff" />
-                    `;
-                } else {
-                    circlesRealHtml += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3" fill="var(--green)" />`;
-                }
-
-                hoverOverlayHtml += `
-                    <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="14" fill="transparent" 
-                            style="cursor:pointer;" 
-                            onclick="selectDayInspection(${p.dia})"
-                            onmouseenter="showTooltip(event, ${p.dia}, '${p.raw.dt_dia}', ${p.val.toFixed(2)}, ${pointsMeta[idx].val.toFixed(2)})" 
-                            onmouseleave="hideTooltip()" />
-                `;
-            });
-
-            const svgHtml = `
-                <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-                    <defs>
-                        <linearGradient id="m2-gradient-real" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#52cc5a" stop-opacity="0.32"/>
-                            <stop offset="100%" stop-color="#52cc5a" stop-opacity="0.0"/>
-                        </linearGradient>
-                    </defs>
-
-                    <line x1="${padX}" y1="${baseFloorY}" x2="${w - padX}" y2="${baseFloorY}" stroke="#1f242d" stroke-width="1.2" />
-                    <line x1="${padX}" y1="${(padTop + innerH / 2).toFixed(1)}" x2="${w - padX}" y2="${(padTop + innerH / 2).toFixed(1)}" stroke="#171a21" stroke-dasharray="3,3" stroke-width="1" />
-                    <line x1="${padX}" y1="${padTop}" x2="${w - padX}" y2="${padTop}" stroke="#171a21" stroke-dasharray="3,3" stroke-width="1" />
-
-                    <path d="${areaRealStr}" fill="url(#m2-gradient-real)" />
-                    <path d="${pathMetaStr}" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4,3" stroke-linecap="round" />
-                    ${circlesMetaHtml}
-                    <path d="${pathRealStr}" fill="none" stroke="var(--green)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
-                    ${circlesRealHtml}
-                    ${verticalGuideHtml}
-                    ${xLabelsHtml}
-                    ${hoverOverlayHtml}
-                </svg>
-            `;
-
-            chartWrap.innerHTML = svgHtml;
+            return { dailySeries, totalFranchisesCount: distinctFranchises.length };
         }
 
-        // Funções do Tooltip interativo
-        const tooltipEl = document.getElementById('chart-tooltip');
-        function showTooltip(evt, dia, data, realVal, metaVal) {
-            const board = document.getElementById('tv-board');
-            const rect = board.getBoundingClientRect();
-            const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
-
-            const x = (evt.clientX - rect.left) / scale;
-            const y = (evt.clientY - rect.top) / scale;
-
-            tooltipEl.style.left = `${x + 12}px`;
-            tooltipEl.style.top = `${y - 30}px`;
-            tooltipEl.style.display = 'block';
-            tooltipEl.innerHTML = `
-                <div style="font-weight:900;margin-bottom:2px;color:#fff;">DIA ${dia} (${data}) • CLIQUE P/ INSPECIONAR</div>
-                <div style="color:var(--green);font-weight:800;">Realizado Acum: ${formatBRL(realVal)}</div>
-                <div style="color:#94a3b8;font-weight:700;">Meta Acum: ${formatBRL(metaVal)}</div>
-            `;
+        function selectDayInspection(dia) {
+            inspectedDay = dia;
+            renderDashboard();
         }
 
-        function hideTooltip() {
-            tooltipEl.style.display = 'none';
+        function clearDayInspection() {
+            inspectedDay = null;
+            renderDashboard();
         }
 
-        // Renderização Completa do Dashboard
+        // Renderização Completa do Dashboard na NOVA interface
         function renderDashboard() {
             const aggResult = getAggregatedSeriesForMonth(currentSelectedMonth);
-            const diasList = aggResult.dailySeries;
-            const count = diasList.length;
-            const latestDay = count > 0 ? diasList[count - 1] : null;
+            currentDaysList = aggResult.dailySeries;
+            const count = currentDaysList.length;
+            const latestDay = count > 0 ? currentDaysList[count - 1] : null;
 
-            // Header Context Label (Geral vs Filtrado)
             const headerContext = document.getElementById('header-context-label');
             const activeFrans = aggResult.totalFranchisesCount;
-
-            const isAll = SELECTED_FILTERS.franquia === null &&
-                          SELECTED_FILTERS.horizonte === null &&
-                          SELECTED_FILTERS.regional === null &&
-                          SELECTED_FILTERS.hunter === null;
+            const isAll = SELECTED_FILTERS.franquia === null && SELECTED_FILTERS.horizonte === null &&
+                          SELECTED_FILTERS.regional === null && SELECTED_FILTERS.hunter === null;
 
             if (isAll) {
-                headerContext.innerText = `GERAL CONSOLIDADO • ${activeFrans} FRANQUIAS`;
+                headerContext.innerText = `VISÃO CONSOLIDADA • ${activeFrans} FRANQUIAS`;
             } else {
                 headerContext.innerText = `FILTRADO • ${activeFrans} FRANQUIA(S) COMBINADA(S)`;
             }
 
             if (!latestDay) {
-                renderM2SvgChart([], null);
+                renderChart();
                 document.getElementById('m2-recebido').innerText = "R$ 0,00";
                 document.getElementById('m2-meta').innerText = "R$ 0,00";
                 document.getElementById('kpi-month-real').innerText = "R$ 0,00";
-                document.getElementById('kpi-month-target').innerText = "Meta: R$ 0,00";
+                document.getElementById('kpi-month-target').innerText = "R$ 0";
                 document.getElementById('kpi-month-pct').innerText = "0.0%";
                 document.getElementById('kpi-day-real').innerText = "R$ 0,00";
-                document.getElementById('kpi-day-target').innerText = "Meta: R$ 0,00";
+                document.getElementById('kpi-day-target').innerText = "R$ 0";
                 document.getElementById('kpi-day-pct').innerText = "0.0%";
                 document.getElementById('kpi-runrate-val').innerText = "R$ 0,00";
-                document.getElementById('kpi-remaining-target').innerText = "Faltam: R$ 0,00";
-                document.getElementById('kpi-gap-val').innerText = "R$ 0,00";
-                document.getElementById('daily-list-container').innerHTML = '<div style="color:#64748b;font-size:0.75em;padding:12px;text-align:center;">Nenhum registro para esta seleção.</div>';
+                document.getElementById('kpi-remaining-target').innerText = "R$ 0";
+                document.getElementById('kpi-gap-val').innerText = "- R$ 0,00";
+                document.getElementById('daily-list-container').innerHTML = '<div style="color:#64748b;font-size:0.75em;padding:12px;text-align:center;">Nenhum registro localizado.</div>';
                 document.getElementById('daily-panel-count').innerText = "0 DIAS";
                 document.getElementById('m2-seal').style.display = 'none';
                 document.getElementById('btn-reset-inspection').style.display = 'none';
                 return;
             }
 
-            // Totais e KPIs Acumulados
-            // Determinação do "Dia de Corte": Hoje via new Date(), ou o dia clicado/inspecionado
-            const now = new Date();
-            const currentYear = now.getFullYear();
-            const currentMonthNum = now.getMonth() + 1;
-            const todayDay = now.getDate();
-            const systemCurrentMonthKey = `${currentYear}-${String(currentMonthNum).padStart(2, '0')}`;
-
             const parts = currentSelectedMonth.split('-');
             const selYear = parseInt(parts[0], 10);
             const selMonth = parseInt(parts[1], 10);
-            const totalDiasMes = new Date(selYear, selMonth, 0).getDate();
+            totalDiasMesGlobal = new Date(selYear, selMonth, 0).getDate();
 
-            const isCurrentMonth = (currentSelectedMonth === systemCurrentMonthKey);
-
-            // Dia base padrão (corte)
-            let baseDayCut = isCurrentMonth ? Math.min(todayDay, totalDiasMes) : totalDiasMes;
-            if (selYear > currentYear || (selYear === currentYear && selMonth > currentMonthNum)) {
-                baseDayCut = 0;
+            // Identificar o dia base global
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonthNum = now.getMonth() + 1;
+            const isCurrentMonth = (selYear === currentYear && selMonth === currentMonthNum);
+            
+            baseDayCutGlobal = totalDiasMesGlobal;
+            if (isCurrentMonth) {
+                baseDayCutGlobal = Math.min(now.getDate(), totalDiasMesGlobal);
+            } else if (selYear > currentYear || (selYear === currentYear && selMonth > currentMonthNum)) {
+                baseDayCutGlobal = 0;
             }
 
-            // Se o usuário clicou em um dia específico para inspecionar:
             const isUserInspecting = (inspectedDay !== null);
-            const diaCorte = isUserInspecting ? inspectedDay : baseDayCut;
+            const diaCorte = isUserInspecting ? inspectedDay : baseDayCutGlobal;
 
-            // Botão de reset de inspeção
             const btnResetInspection = document.getElementById('btn-reset-inspection');
-            if (isUserInspecting) {
+            if (isUserInspecting && inspectedDay !== baseDayCutGlobal) {
                 btnResetInspection.style.display = 'inline-flex';
-                btnResetInspection.innerText = `↺ VOLTAR P/ HOJE (INSP. D${inspectedDay})`;
+                btnResetInspection.innerText = `↺ VOLTAR P/ HOJE (DIA ${inspectedDay})`;
             } else {
                 btnResetInspection.style.display = 'none';
             }
 
-            // Localiza o registro até o dia de corte selecionado
-            const recordsUpToCut = diasList.filter(d => d.dia <= diaCorte);
-            const refDay = recordsUpToCut.length > 0 ? recordsUpToCut[recordsUpToCut.length - 1] : diasList[0];
+            const recordsUpToCut = currentDaysList.filter(d => d.dia <= diaCorte);
+            const refDay = recordsUpToCut.length > 0 ? recordsUpToCut[recordsUpToCut.length - 1] : currentDaysList[0];
             
-            // Meta total do mês inteiro (último dia da meta planejada)
             const metaTotalMes = latestDay.meta_acumulada;
             const realAcumCorte = refDay ? refDay.realizado_acumulado : 0;
             const metaAcumCorte = refDay ? refDay.meta_acumulada : 0;
 
-            const diasDecorridos = diaCorte;
-            const diasRestantes = Math.max(totalDiasMes - diaCorte, 0);
+            const diasRestantes = Math.max(totalDiasMesGlobal - diaCorte, 0);
             const faltaParaMeta = Math.max(metaTotalMes - realAcumCorte, 0);
 
-            // 1. KPI 1: Progresso do Mês na data inspecionada
+            // KPI 1: Progresso do Mês
             const pctMes = metaTotalMes > 0 ? (realAcumCorte / metaTotalMes) * 100 : (realAcumCorte > 0 ? 100 : 0);
-            document.getElementById('kpi-month-label').innerText = isUserInspecting ? `Acumulado até Dia ${diaCorte}` : 'Progresso do Mês';
+            document.getElementById('kpi-month-label').innerText = isUserInspecting ? `ACUMULADO (DIA ${diaCorte})` : 'PROGRESSO DO MÊS';
             document.getElementById('kpi-month-real').innerText = formatBRL(realAcumCorte);
-            document.getElementById('kpi-month-target').innerText = `Meta Mês: ${formatBRLCompact(metaTotalMes)}`;
+            document.getElementById('kpi-month-target').innerText = formatBRLCompact(metaTotalMes);
             const kpiMonthPctEl = document.getElementById('kpi-month-pct');
             kpiMonthPctEl.innerText = `${pctMes.toFixed(1)}%`;
             kpiMonthPctEl.className = `kpi-pct-badge ${pctMes >= 100 ? 'green' : ''}`;
             document.getElementById('kpi-month-bar').style.width = `${Math.min(pctMes, 100)}%`;
+            document.getElementById('kpi-month-bar').className = `kpi-bar-fill ${pctMes >= 100 ? '' : 'fill-red'}`;
 
-            // 2. Card Rodapé
+            // Card Rodapé
             document.getElementById('m2-recebido').innerText = formatBRL(realAcumCorte);
             document.getElementById('m2-meta').innerText = formatBRL(metaAcumCorte);
+            document.getElementById('footer-real-lbl').innerText = isUserInspecting ? `REALIZADO ACUM. ATÉ DIA ${diaCorte}` : 'TOTAL REALIZADO ACUMULADO';
+            document.getElementById('footer-meta-lbl').innerText = isUserInspecting ? `META ACUM. ATÉ DIA ${diaCorte}` : 'META PROVISIONADA ACUMULADA';
 
-            // 3. Selo On Track naquele dia
+            // Selo On Track
             const sealEl = document.getElementById('m2-seal');
             sealEl.style.display = (realAcumCorte >= metaAcumCorte && metaAcumCorte > 0) ? 'flex' : 'none';
 
-            // 4. KPI 2: Ritmo daquele Dia Específico
-            const diaCorteObj = diasList.find(d => d.dia === diaCorte) || refDay;
+            // KPI 2: Ritmo do Dia
+            const diaCorteObj = currentDaysList.find(d => d.dia === diaCorte) || refDay;
             const realDiaCorte = diaCorteObj ? diaCorteObj.realizado_dia : 0;
             const metaDiaCorte = diaCorteObj ? diaCorteObj.meta_dia : 0;
             const pctDia = metaDiaCorte > 0 ? (realDiaCorte / metaDiaCorte) * 100 : (realDiaCorte > 0 ? 100 : 0);
 
-            let dayLabelText = `Realizado Dia ${diaCorte}`;
-            if (!isUserInspecting && isCurrentMonth && diaCorte === todayDay) {
-                dayLabelText = `Hoje (Dia ${diaCorte})`;
+            let dayLabelText = `INSPEÇÃO (DIA ${diaCorte})`;
+            if (!isUserInspecting && isCurrentMonth && diaCorte === now.getDate()) {
+                dayLabelText = `HOJE (DIA ${diaCorte})`;
+            } else if (!isUserInspecting) {
+                dayLabelText = `FECHAMENTO (DIA ${diaCorte})`;
             }
+
             document.getElementById('kpi-day-label').innerText = dayLabelText;
             document.getElementById('kpi-day-real').innerText = formatBRL(realDiaCorte);
-            document.getElementById('kpi-day-target').innerText = `Meta Dia: ${formatBRL(metaDiaCorte)}`;
+            document.getElementById('kpi-day-target').innerText = formatBRL(metaDiaCorte);
             const kpiDayPctEl = document.getElementById('kpi-day-pct');
             kpiDayPctEl.innerText = `${pctDia.toFixed(1)}%`;
             kpiDayPctEl.className = `kpi-pct-badge ${pctDia >= 100 ? 'green' : ''}`;
-            document.getElementById('kpi-day-bar').style.width = `${Math.min(pctDia, 100)}%`;
+            const kpiDayBar = document.getElementById('kpi-day-bar');
+            kpiDayBar.style.width = `${Math.min(pctDia, 100)}%`;
+            if (pctDia >= 100) {
+                kpiDayBar.style.background = 'var(--green)';
+            } else {
+                kpiDayBar.style.background = 'linear-gradient(90deg, #ffc02a 0%, var(--green) 100%)';
+            }
 
-            // 5. KPI 3: Run-Rate e Ritmo Diário Restante a partir daquele momento
-            const titleEl = document.getElementById('kpi-runrate-title');
-            const remainingBadgeEl = document.getElementById('kpi-days-remaining');
+            // KPI 3: Run Rate
+            const runrateTitleEl = document.getElementById('kpi-runrate-title');
+            const runrateBadgeEl = document.getElementById('kpi-days-remaining');
             const runrateValEl = document.getElementById('kpi-runrate-val');
-            const targetRemainingEl = document.getElementById('kpi-remaining-target');
+            const runrateLabelEl = document.getElementById('kpi-remaining-sub-label');
+            const runrateTargetEl = document.getElementById('kpi-remaining-target');
             const runrateBarEl = document.getElementById('kpi-runrate-bar');
 
             if (diasRestantes > 0) {
-                titleEl.innerText = isUserInspecting ? `Ritmo Nec. pós Dia ${diaCorte}` : "Ritmo Necessário / Dia";
-                remainingBadgeEl.innerText = `${diasRestantes} dia(s) rest.`;
-                remainingBadgeEl.style.color = "var(--cyan-accent)";
+                runrateTitleEl.innerText = "RITMO NECESSÁRIO / DIA";
+                runrateBadgeEl.innerText = `${diasRestantes} dia(s) rest.`;
+                runrateBadgeEl.style.color = "var(--cyan-accent)";
 
                 if (faltaParaMeta === 0) {
                     runrateValEl.innerText = "META BATIDA";
                     runrateValEl.style.color = "var(--green)";
-                    targetRemainingEl.innerText = `Superávit: ${formatBRLCompact(realAcumCorte - metaTotalMes)}`;
+                    runrateLabelEl.innerText = "Superávit:";
+                    runrateTargetEl.innerText = formatBRLCompact(realAcumCorte - metaTotalMes);
                     runrateBarEl.style.background = "var(--green)";
-                    runrateBarEl.style.width = "100%";
                 } else {
-                    const ritmoNecessario = faltaParaMeta / diasRestantes;
-                    runrateValEl.innerText = formatBRL(ritmoNecessario);
-                    runrateValEl.style.color = "#cbd5e1";
-                    targetRemainingEl.innerText = `Faltam: ${formatBRLCompact(faltaParaMeta)}`;
+                    runrateValEl.innerText = formatBRL(faltaParaMeta / diasRestantes);
+                    runrateValEl.style.color = "#ffffff";
+                    runrateLabelEl.innerText = "Faltam:";
+                    runrateTargetEl.innerText = formatBRLCompact(faltaParaMeta);
                     runrateBarEl.style.background = "#ffc02a";
-                    runrateBarEl.style.width = "100%";
                 }
             } else {
-                titleEl.innerText = "Média Realizada / Dia";
-                remainingBadgeEl.innerText = "FIM DO PERÍODO";
-                remainingBadgeEl.style.color = "#94a3b8";
+                runrateTitleEl.innerText = "MÉDIA REALIZADA / DIA";
+                runrateBadgeEl.innerText = "FIM DO PERÍODO";
+                runrateBadgeEl.style.color = "#94a3b8";
 
-                const mediaRealizadaDia = diasDecorridos > 0 ? (realAcumCorte / diasDecorridos) : 0;
-                runrateValEl.innerText = formatBRL(mediaRealizadaDia);
-                runrateValEl.style.color = (realAcumCorte >= metaTotalMes) ? "var(--green)" : "#e2e8f0";
-
+                const mediaDia = diaCorte > 0 ? (realAcumCorte / diaCorte) : 0;
+                runrateValEl.innerText = formatBRL(mediaDia);
+                runrateValEl.style.color = (realAcumCorte >= metaTotalMes) ? "var(--green)" : "#ffffff";
+                
                 if (realAcumCorte >= metaTotalMes) {
-                    targetRemainingEl.innerText = `Meta superada em ${formatBRLCompact(realAcumCorte - metaTotalMes)}`;
+                    runrateLabelEl.innerText = "Superado:";
+                    runrateTargetEl.innerText = formatBRLCompact(realAcumCorte - metaTotalMes);
                     runrateBarEl.style.background = "var(--green)";
                 } else {
-                    targetRemainingEl.innerText = `Fechou com gap de -${formatBRLCompact(faltaParaMeta)}`;
+                    runrateLabelEl.innerText = "Gap Final:";
+                    runrateTargetEl.innerText = `-${formatBRLCompact(faltaParaMeta)}`;
                     runrateBarEl.style.background = "var(--v4-red)";
                 }
-                runrateBarEl.style.width = "100%";
             }
 
-            // 6. KPI 4: Gap e Status da Operação (vs Meta Esperada até o dia de corte)
+            // KPI 4: Gap Status Danger/Success
             const diff = realAcumCorte - metaAcumCorte;
+            const statusCard = document.getElementById('kpi-card-status');
             const gapValEl = document.getElementById('kpi-gap-val');
             const statusBadgeEl = document.getElementById('kpi-status-badge');
             const statusBarEl = document.getElementById('kpi-status-bar');
 
             if (diff >= 0) {
+                statusCard.className = "kpi-card success";
                 gapValEl.innerText = `+ ${formatBRL(diff)}`;
-                gapValEl.style.color = 'var(--green)';
+                gapValEl.className = "kpi-val-main";
                 statusBadgeEl.innerText = 'ON TRACK';
-                statusBadgeEl.style.color = 'var(--green)';
-                statusBarEl.style.background = 'var(--green)';
+                statusBadgeEl.className = "kpi-pct-badge green";
+                statusBarEl.className = "kpi-bar-fill";
                 statusBarEl.style.width = '100%';
             } else {
+                statusCard.className = "kpi-card danger";
                 gapValEl.innerText = `- ${formatBRL(Math.abs(diff))}`;
-                gapValEl.style.color = 'var(--v4-red)';
+                gapValEl.className = "kpi-val-main red";
                 statusBadgeEl.innerText = 'ABAIXO';
-                statusBadgeEl.style.color = 'var(--v4-red)';
-                statusBarEl.style.background = 'var(--v4-red)';
+                statusBadgeEl.className = "kpi-pct-badge red";
+                statusBarEl.className = "kpi-bar-fill fill-danger";
                 statusBarEl.style.width = `${Math.min(pctMes, 100)}%`;
             }
 
-            // 7. Renderiza a Curva Acumulada passando o dia ativo para highlight
-            renderM2SvgChart(diasList, diaCorte);
-
-            // 8. Tabela Diária
-            const dailyListContainer = document.getElementById('daily-list-container');
-            dailyListContainer.innerHTML = '';
-            document.getElementById('daily-panel-count').innerText = `${count} DIAS REGISTRADOS`;
-
-            const reversedDias = [...diasList].reverse();
-            reversedDias.forEach((d) => {
-                const rDia = d.realizado_dia;
-                const mDia = d.meta_dia;
-                const pDia = mDia > 0 ? (rDia / mDia) * 100 : (rDia > 0 ? 100 : 0);
-                const isAchieved = pDia >= 100;
-                const isSelected = (d.dia === diaCorte);
-                const isTodayReal = isCurrentMonth && (d.dia === todayDay);
-
-                let tagExtra = '';
-                if (isTodayReal) tagExtra = ' (HOJE)';
-                if (isUserInspecting && isSelected) tagExtra = ' (EM FOCO)';
-
-                const row = document.createElement('div');
-                row.className = `daily-row ${isSelected ? 'today-highlight' : ''} ${isAchieved ? 'achieved' : ''}`;
-                row.style.cursor = 'pointer';
-                row.onclick = () => selectDayInspection(d.dia);
-                row.innerHTML = `
-                    <div class="daily-date-col">
-                        <span class="daily-day-tag" style="${isSelected ? 'color:var(--cyan-accent);' : ''}">DIA ${d.dia}${tagExtra}</span>
-                        <span class="daily-date-sub">${d.dt_dia}</span>
-                    </div>
-                    <div class="daily-values-col">
-                        <span class="daily-real-val">${formatBRL(rDia)}</span>
-                        <span class="daily-meta-val">Meta: ${formatBRL(mDia)}</span>
-                    </div>
-                    <div class="daily-status-col">
-                        <span class="daily-pct-pill ${isAchieved ? 'achieved' : ''}">${pDia.toFixed(1)}%</span>
-                    </div>
-                `;
-                dailyListContainer.appendChild(row);
-            });
+            // Calls Renderers for graphics
+            renderChart();
+            renderDailyList();
         }
 
-        // Tenta buscar dados.json externo se disponível
+        function setChartMode(mode) {
+            chartMode = mode;
+            document.getElementById('btn-mode-accum').classList.toggle('active', mode === 'accum');
+            document.getElementById('btn-mode-daily').classList.toggle('active', mode === 'daily');
+            
+            const title = document.getElementById('chart-main-title');
+            const legend = document.getElementById('chart-legend-box');
+            if (mode === 'accum') {
+                title.innerText = 'CURVA ACUMULADA - META VS REALIZADO';
+                legend.innerHTML = `
+                    <span class="m2-leg-item"><span class="m2-leg-line real"></span>REALIZADO ACUMULADO</span>
+                    <span class="m2-leg-item"><span class="m2-leg-line meta"></span>META ACUMULADA</span>
+                `;
+            } else {
+                title.innerText = 'RECEBIDO POR DIA - META VS REALIZADO';
+                legend.innerHTML = `
+                    <span class="m2-leg-item"><span class="m2-leg-line real" style="height:8px;width:10px;"></span>REALIZADO DO DIA</span>
+                    <span class="m2-leg-item"><span class="m2-leg-line meta" style="height:8px;width:10px;background:#64748b;border:none;"></span>META DO DIA</span>
+                `;
+            }
+            renderChart();
+        }
+
+        function renderChart() {
+            if (currentDaysList.length === 0) return;
+            if (chartMode === 'accum') {
+                renderAccumulatedChart();
+            } else {
+                renderDailyBarsChart();
+            }
+        }
+
+        function renderAccumulatedChart() {
+            const wrap = document.getElementById('m2-chart-wrap');
+            if (!wrap) return;
+
+            const width = wrap.clientWidth || 790;
+            const height = wrap.clientHeight || 340;
+            const padL = 70;
+            const padR = 25;
+            const padT = 20;
+            const padB = 30;
+
+            const plotW = width - padL - padR;
+            const plotH = height - padT - padB;
+            
+            const allMetas = currentDaysList.map(d => d.meta_acumulada);
+            const allReais = currentDaysList.filter(d => d.dia <= baseDayCutGlobal).map(d => d.realizado_acumulado);
+            const absoluteMax = Math.max(...allMetas, ...allReais, 1);
+            
+            const magnitude = absoluteMax > 1000000 ? 500000 : (absoluteMax > 100000 ? 50000 : 10000);
+            const maxY = Math.ceil((absoluteMax * 1.05) / magnitude) * magnitude;
+
+            const getX = (dia) => padL + ((dia - 1) / (totalDiasMesGlobal - 1)) * plotW;
+            const getY = (val) => padT + plotH - (val / maxY) * plotH;
+
+            const activeDayMarker = inspectedDay || baseDayCutGlobal;
+
+            let metaPath = `M ${getX(1)} ${getY(currentDaysList[0].meta_acumulada)}`;
+            let metaPoints = '';
+            for (let i = 0; i < currentDaysList.length; i++) {
+                const item = currentDaysList[i];
+                const x = getX(item.dia);
+                const y = getY(item.meta_acumulada);
+                if (i > 0) metaPath += ` L ${x} ${y}`;
+                metaPoints += `
+                    <circle cx="${x}" cy="${y}" r="3" fill="#94a3b8" class="chart-point" 
+                            style="cursor:pointer;" 
+                            onclick="selectDayInspection(${item.dia})"
+                            onmouseenter="showChartTooltip(event, ${item.dia})" 
+                            onmouseleave="hideChartTooltip()" />
+                `;
+            }
+
+            let realPath = '';
+            let realPoints = '';
+            let firstReal = true;
+            for (let i = 0; i < currentDaysList.length; i++) {
+                const item = currentDaysList[i];
+                if (item.dia > baseDayCutGlobal) break;
+
+                const x = getX(item.dia);
+                const y = getY(item.realizado_acumulado);
+                
+                if (firstReal) {
+                    realPath = `M ${x} ${y}`;
+                    firstReal = false;
+                } else {
+                    realPath += ` L ${x} ${y}`;
+                }
+                
+                if (item.dia !== activeDayMarker) {
+                    realPoints += `
+                        <circle cx="${x}" cy="${y}" r="3.5" fill="var(--green)" class="chart-point" 
+                                style="cursor:pointer;" 
+                                onclick="selectDayInspection(${item.dia})"
+                                onmouseenter="showChartTooltip(event, ${item.dia})" 
+                                onmouseleave="hideChartTooltip()" />
+                    `;
+                }
+            }
+
+            const lastRealItem = currentDaysList.find(d => d.dia === baseDayCutGlobal) || currentDaysList[0];
+            const areaPath = realPath ? `${realPath} L ${getX(lastRealItem.dia)} ${getY(0)} L ${getX(1)} ${getY(0)} Z` : '';
+
+            let gridLines = '';
+            const ticksCount = 5;
+            for (let i = 0; i <= ticksCount; i++) {
+                const val = (maxY / ticksCount) * i;
+                const yPos = getY(val);
+                gridLines += `
+                    <line x1="${padL}" y1="${yPos}" x2="${width - padR}" y2="${yPos}" stroke="#161820" stroke-width="1" stroke-dasharray="2,2"/>
+                    <text x="${padL - 10}" y="${yPos + 3.5}" fill="#64748b" font-size="9" font-weight="700" text-anchor="end">
+                        ${formatAxisLabel(val)}
+                    </text>
+                `;
+            }
+
+            let xLabels = '';
+            for (let d = 1; d <= totalDiasMesGlobal; d++) {
+                const xPos = getX(d);
+                const isSelected = d === activeDayMarker;
+                const isStepTick = (d % 3 === 1) || (d === totalDiasMesGlobal);
+
+                if (isStepTick || isSelected) {
+                    const fillCol = isSelected ? 'var(--cyan-accent)' : '#64748b';
+                    const fontW = isSelected ? '900' : '700';
+                    const lineH = isSelected ? 6 : 4;
+                    xLabels += `
+                        <line x1="${xPos}" y1="${padT + plotH}" x2="${xPos}" y2="${padT + plotH + lineH}" stroke="${fillCol}" stroke-width="${isSelected ? 1.5 : 1}"/>
+                        <text x="${xPos}" y="${padT + plotH + 18}" fill="${fillCol}" font-size="${isSelected ? 10 : 9}" font-weight="${fontW}" text-anchor="middle" style="cursor:pointer;" onclick="selectDayInspection(${d})">
+                            D${d}
+                        </text>
+                    `;
+                }
+            }
+
+            const activeItem = currentDaysList.find(d => d.dia === activeDayMarker) || currentDaysList[currentDaysList.length - 1];
+            const selectedX = getX(activeItem.dia);
+            const isFutureActive = activeItem.dia > baseDayCutGlobal;
+            
+            let activeMarkerHtml = '';
+            if (!isFutureActive) {
+                const selectedRealY = getY(activeItem.realizado_acumulado);
+                const isCurrentMode = (activeDayMarker === baseDayCutGlobal);
+                const markerColor = isCurrentMode ? 'var(--cyan-accent)' : '#ffffff';
+
+                activeMarkerHtml = `
+                    <line x1="${selectedX}" y1="${padT + 5}" x2="${selectedX}" y2="${padT + plotH}" stroke="${markerColor}" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.8"/>
+                    <circle cx="${selectedX}" cy="${selectedRealY}" r="7" fill="none" stroke="${markerColor}" stroke-width="2"/>
+                    <circle cx="${selectedX}" cy="${selectedRealY}" r="3" fill="var(--cyan-accent)"/>
+                `;
+            }
+
+            const svg = `
+                <svg viewBox="0 0 ${width} ${height}">
+                    <defs>
+                        <linearGradient id="realGlowGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="var(--green)" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="var(--green)" stop-opacity="0.0"/>
+                        </linearGradient>
+                        <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                        </filter>
+                    </defs>
+                    ${gridLines}
+                    <line x1="${padL}" y1="${padT + plotH}" x2="${width - padR}" y2="${padT + plotH}" stroke="#22252e" stroke-width="1.5"/>
+                    <path d="${areaPath}" fill="url(#realGlowGrad)"/>
+                    <path d="${metaPath}" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4,4"/>
+                    ${metaPoints}
+                    <path d="${realPath}" fill="none" stroke="var(--green)" stroke-width="2.5" filter="url(#neonGlow)"/>
+                    ${realPoints}
+                    ${activeMarkerHtml}
+                    ${xLabels}
+                </svg>
+            `;
+
+            wrap.innerHTML = svg;
+        }
+
+        function renderDailyBarsChart() {
+            const wrap = document.getElementById('m2-chart-wrap');
+            if (!wrap) return;
+
+            const width = wrap.clientWidth || 790;
+            const height = wrap.clientHeight || 340;
+            const padL = 70;
+            const padR = 25;
+            const padT = 20;
+            const padB = 30;
+
+            const plotW = width - padL - padR;
+            const plotH = height - padT - padB;
+            
+            const allMetasDia = currentDaysList.map(d => d.meta_dia);
+            const allReaisDia = currentDaysList.filter(d => d.dia <= baseDayCutGlobal).map(d => d.realizado_dia);
+            const absoluteMax = Math.max(...allMetasDia, ...allReaisDia, 1);
+            
+            const magnitude = absoluteMax > 100000 ? 50000 : (absoluteMax > 10000 ? 5000 : 1000);
+            const maxVal = Math.ceil((absoluteMax * 1.05) / magnitude) * magnitude;
+
+            const getY = (val) => padT + plotH - (Math.min(val, maxVal) / maxVal) * plotH;
+            const stepX = plotW / totalDiasMesGlobal;
+            const barW = Math.max(3, stepX * 0.38);
+
+            let gridLines = '';
+            const ticksCount = 5;
+            for (let i = 0; i <= ticksCount; i++) {
+                const v = (maxVal / ticksCount) * i;
+                const yPos = getY(v);
+                gridLines += `
+                    <line x1="${padL}" y1="${yPos}" x2="${width - padR}" y2="${yPos}" stroke="#161820" stroke-width="1" stroke-dasharray="2,2"/>
+                    <text x="${padL - 10}" y="${yPos + 3.5}" fill="#64748b" font-size="9" font-weight="700" text-anchor="end">
+                        ${formatAxisLabel(v)}
+                    </text>
+                `;
+            }
+
+            let bars = '';
+            let xTicks = '';
+            const activeDayMarker = inspectedDay || baseDayCutGlobal;
+
+            currentDaysList.forEach((item, idx) => {
+                const centerX = padL + (idx + 0.5) * stepX;
+                const metaX = centerX - barW - 1;
+                const realX = centerX + 1;
+
+                const metaY = getY(item.meta_dia);
+                const metaH = Math.max(2, (padT + plotH) - metaY);
+
+                const realY = getY(item.realizado_dia);
+                const realH = Math.max(2, (padT + plotH) - realY);
+
+                const isSelected = item.dia === activeDayMarker;
+                const isToday = item.dia === baseDayCutGlobal;
+
+                // Barra Meta
+                bars += `
+                    <rect x="${metaX}" y="${metaY}" width="${barW}" height="${metaH}" fill="#333844" opacity="${isSelected ? 1 : 0.7}" rx="1"
+                          style="cursor:pointer;" onclick="selectDayInspection(${item.dia})" 
+                          onmouseenter="showChartTooltip(event, ${item.dia})" onmouseleave="hideChartTooltip()"/>
+                `;
+
+                // Barra Realizado
+                if (item.realizado_dia > 0 || item.dia <= baseDayCutGlobal) {
+                    const barFill = item.realizado_dia >= item.meta_dia ? 'var(--green)' : '#ffc02a';
+                    bars += `
+                        <rect x="${realX}" y="${realY}" width="${barW}" height="${realH}" fill="${barFill}" rx="1"
+                              style="cursor:pointer;" onclick="selectDayInspection(${item.dia})" 
+                              onmouseenter="showChartTooltip(event, ${item.dia})" onmouseleave="hideChartTooltip()"/>
+                    `;
+                }
+
+                if (isSelected) {
+                    bars += `<rect x="${centerX - barW * 1.5 - 3}" y="${padT}" width="${barW * 3 + 6}" height="${plotH}" fill="rgba(56, 189, 248, 0.08)" pointer-events="none"/>`;
+                }
+
+                const isStepTick = (item.dia % 3 === 1) || (item.dia === totalDiasMesGlobal);
+                if (isStepTick || isSelected) {
+                    const fillCol = isSelected ? 'var(--cyan-accent)' : (isToday ? 'var(--cyan-accent)' : '#64748b');
+                    xTicks += `
+                        <text x="${centerX}" y="${padT + plotH + 16}" fill="${fillCol}" font-size="${isSelected ? 10 : 9}" font-weight="${isSelected ? 900 : 700}" text-anchor="middle" style="cursor:pointer;" onclick="selectDayInspection(${item.dia})">
+                            D${item.dia}
+                        </text>
+                    `;
+                }
+            });
+
+            const svg = `
+                <svg viewBox="0 0 ${width} ${height}">
+                    ${gridLines}
+                    <line x1="${padL}" y1="${padT + plotH}" x2="${width - padR}" y2="${padT + plotH}" stroke="#22252e" stroke-width="1.5"/>
+                    ${bars}
+                    ${xTicks}
+                </svg>
+            `;
+            wrap.innerHTML = svg;
+        }
+
+        function showChartTooltip(e, dia) {
+            const tip = document.getElementById('chart-tooltip');
+            const item = currentDaysList.find(d => d.dia === dia);
+            if (!tip || !item) return;
+
+            const isPast = item.dia <= baseDayCutGlobal;
+            const isToday = item.dia === baseDayCutGlobal;
+            const pct = isPast ? (item.meta_dia > 0 ? (item.realizado_dia / item.meta_dia) * 100 : (item.realizado_dia > 0 ? 100 : 0)).toFixed(1) : '0.0';
+
+            tip.innerHTML = `
+                <div style="font-weight:900; color:#fff; margin-bottom:4px; border-bottom:1px solid #2d313d; padding-bottom:3px; display:flex; justify-content:space-between;">
+                    <span>DIA ${item.dia} (${item.dt_dia})</span>
+                    <span style="color:${isPast ? 'var(--cyan-accent)' : '#94a3b8'};">${isPast ? (isToday ? 'HOJE' : 'REGISTRADO') : 'PROVISIONADO'}</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; gap:16px;">
+                    <span style="color:#94a3b8;">Realizado no Dia:</span>
+                    <b style="color:var(--green);">${formatBRL(item.realizado_dia)}</b>
+                </div>
+                <div style="display:flex; justify-content:space-between; gap:16px;">
+                    <span style="color:#94a3b8;">Meta do Dia:</span>
+                    <b style="color:#e2e8f0;">${formatBRL(item.meta_dia)}</b>
+                </div>
+                <div style="display:flex; justify-content:space-between; gap:16px;">
+                    <span style="color:#94a3b8;">Atingimento Dia:</span>
+                    <b style="color:${parseFloat(pct) >= 100 ? 'var(--green)' : '#ffc02a'};">${pct}%</b>
+                </div>
+                <div style="margin-top:4px; padding-top:4px; border-top:1px dashed #232732; display:flex; justify-content:space-between; gap:16px;">
+                    <span style="color:#64748b;">Realizado Acum.:</span>
+                    <span style="color:#cbd5e1; font-weight:700;">${formatBRL(item.realizado_acumulado)}</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; gap:16px;">
+                    <span style="color:#64748b;">Meta Acumulada:</span>
+                    <span style="color:#cbd5e1; font-weight:700;">${formatBRL(item.meta_acumulada)}</span>
+                </div>
+            `;
+
+            // Calculate exact position based on viewport regardless of scaling
+            // Because the tooltip is now a direct child of body
+            tip.style.display = 'block';
+            tip.style.left = `${e.clientX + 15}px`;
+            tip.style.top = `${e.clientY - tip.offsetHeight / 2}px`; // center vertically next to cursor
+        }
+
+        function hideChartTooltip() {
+            const tip = document.getElementById('chart-tooltip');
+            if (tip) tip.style.display = 'none';
+        }
+
+        function renderDailyList() {
+            const container = document.getElementById('daily-list-container');
+            if (!container) return;
+
+            document.getElementById('daily-panel-count').innerText = `${currentDaysList.length} DIAS REGISTRADOS`;
+            
+            let html = '';
+            const sorted = [...currentDaysList].reverse();
+            const activeDayMarker = inspectedDay || baseDayCutGlobal;
+            const isUserInspecting = (inspectedDay !== null);
+
+            sorted.forEach(item => {
+                const isPastOrToday = item.dia <= baseDayCutGlobal;
+                const realVal = isPastOrToday ? item.realizado_dia : 0;
+                const pct = isPastOrToday ? (item.meta_dia > 0 ? (realVal / item.meta_dia) * 100 : (realVal > 0 ? 100 : 0)).toFixed(1) : '0.0';
+                
+                const isAchieved = isPastOrToday && (realVal >= item.meta_dia);
+                const isSelected = item.dia === activeDayMarker;
+                const isToday = item.dia === baseDayCutGlobal;
+                
+                let rowClasses = "daily-row";
+                if (isSelected && isUserInspecting) rowClasses += " inspected-highlight";
+                else if (isSelected) rowClasses += " today-highlight";
+                
+                if (isAchieved) rowClasses += " achieved";
+
+                let tagExtra = "";
+                if (isToday && !isUserInspecting) tagExtra = " (HOJE)";
+                else if (isSelected && isUserInspecting) tagExtra = " (EM FOCO)";
+
+                const realDisplay = formatBRL(realVal);
+                const metaDisplay = `Meta: ${formatBRL(item.meta_dia)}`;
+                const pctDisplay = `${pct}%`;
+
+                html += `
+                    <div class="${rowClasses}" onclick="selectDayInspection(${item.dia})">
+                        <div class="daily-date-col">
+                            <span class="daily-day-tag" style="${isSelected ? 'color:var(--cyan-accent);' : ''}">DIA ${item.dia}${tagExtra}</span>
+                            <span class="daily-date-sub">${item.dt_dia}</span>
+                        </div>
+                        <div class="daily-values-col">
+                            <span class="daily-real-val">${realDisplay}</span>
+                            <span class="daily-meta-val">${metaDisplay}</span>
+                        </div>
+                        <div class="daily-status-col">
+                            <span class="daily-pct-pill ${isAchieved ? 'achieved' : ''}">${pctDisplay}</span>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Tentativa de carregar dados externos
         async function tryLoadExternalData() {
             try {
                 if (window.location.protocol !== 'blob:' && window.location.protocol !== 'about:') {
@@ -1905,12 +1969,11 @@
                     }
                 }
             } catch (e) {
-                // Silencioso: usa o dataset incorporado
+                // Silencioso: usa o dataset incorporado se falhar
             }
             ingestRawData(EMBEDDED_RAW_DATA);
         }
 
-        // Inicialização
         async function init() {
             await tryLoadExternalData();
             populateMonthSelect();
@@ -1918,7 +1981,7 @@
             renderDashboard();
         }
 
-        init();
+        window.onload = init;
     </script>
 </body>
 </html>
